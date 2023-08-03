@@ -13,4 +13,8 @@ module.exports = {
 		path: buildPath,
 		filename: 'index.js',
 	},
+	devServer: {
+		static: buildPath,
+		port: 3000,
+	},
 };
