@@ -1,4 +1,6 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const buildDir = 'dist';
 const buildPath = path.resolve(__dirname, buildDir);
@@ -56,4 +58,10 @@ module.exports = {
 		static: buildPath,
 		port: 3000,
 	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: `./public/index.html`,
+		}),
+		new CleanWebpackPlugin(),
+	],
 };
