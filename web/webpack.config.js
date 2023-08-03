@@ -30,6 +30,26 @@ module.exports = {
 				],
 				exclude: /node_modules/,
 			},
+			{
+				test: /\.tsx?$/,
+				use: ['ts-loader'],
+				exclude: ['/node_modules/'],
+			},
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader'],
+			},
+			{
+				test: /\.(png|jpe?g|gif|woff|woff2|ttf|svg|ico)$/i,
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 12000,
+						},
+					},
+				],
+			},
 		],
 	},
 	devServer: {
