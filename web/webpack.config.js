@@ -1,3 +1,4 @@
+require('dotenv').config();
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -5,8 +6,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const buildDir = 'dist';
 const buildPath = path.resolve(__dirname, buildDir);
 
+const isDevelopment = process.env.NODE_ENV !== 'production';
+
 module.exports = {
-	mode: 'development',
+	mode: isDevelopment ? 'development' : 'production',
 	resolve: {
 		extensions: ['.js', '.jsx', '.ts', '.tsx'],
 	},

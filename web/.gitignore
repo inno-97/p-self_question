@@ -3,3 +3,10 @@
 
 # production
 /dist
+
+# environment
+.env
+.env.production
+.env.development
+.env.local
+.env.test
