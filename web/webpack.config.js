@@ -1,5 +1,6 @@
 require('dotenv').config();
 const path = require('path');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -66,5 +67,6 @@ module.exports = {
 			template: `./public/index.html`,
 		}),
 		new CleanWebpackPlugin(),
-	],
+		isDevelopment && new ReactRefreshWebpackPlugin(),
+	].filter(Boolean),
 };
